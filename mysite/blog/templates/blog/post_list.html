@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>blog!</title>
+    </head>
+    <body>
+        <div>
+            <h1>My Blog Posts</h1>
+        </div>
+{% for post in post_list %}
+        <div>
+          <p>published: {{ post.published_date }}</p>
+          <h2><a href="{% url 'post-detail' post.pk %}">{{ post.title }}</a></h2>
+          <p>{{ post.text|truncatechars:9 }}</p>
+        </div>
+{% endfor %}
+    </body>
+</html>
